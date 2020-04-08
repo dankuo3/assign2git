@@ -28,7 +28,37 @@ public class Cart {
      * @throws UnderAgeException
      */
     public double calcCost() throws UnderAgeException {
-        return 0; //implement me, will be important for assignment 4 (nothing to do here for assignment 3)
+    	double totalCost = 0;
+    	String stName = "AZ";
+    	
+    	for (int i = 0; i < cart.size(); i++) {
+    		if (cart.get(i) == new Dairy()) {
+    			totalCost += new Dairy().getCost();
+    		}
+    		if (cart.get(i) == new FrozenFood()) {
+    			totalCost += new FrozenFood().getCost();
+    		}
+    		if (cart.get(i) == new Meat()) {
+    			totalCost += new Meat().getCost();
+    		}
+    		if (cart.get(i) == new Produce()) {
+    			totalCost += new Produce().getCost();
+    		}
+    		if (cart.get(i) == new Alcohol()) {
+    			if (userAge < 21) {
+                    throw new UnderAgeException("The User is not of age to purchase alcohol!");
+                }
+    			else 
+    			{
+    				totalCost += new Alcohol().getCost();
+    			}
+    		}
+    	}
+    	
+    	totalCost -= Amount_saved();
+    	getTax(totalCost, stName);
+    	
+        return totalCost; //implement me, will be important for assignment 4 (nothing to do here for assignment 3)
     }
 
     // calculates how much was saved in the current shopping cart based on the deals, returns the saved amount
