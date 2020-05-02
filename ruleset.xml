@@ -36,3 +36,13 @@
 
 
 </ruleset>
+
+
+For Task 5
+Since the method Amount_saved could be potentially longer in terms of LOC, it could contribute 
+to the violation of rules ExcessiveMethodLength as well as ExcessiveClassLength; thus, these 
+two rules would be helpful to track the code smell Large Class, where a class may be too large 
+to lose its sense of identity and may need further decomposition into smaller classes.
+In addition, long parameter list could also be an issue in the method Amount_saved() 
+as shown in the if statements. So once again the rules ExcessiveMethodLength as well as 
+ExcessiveClassLength will be helpful here.
